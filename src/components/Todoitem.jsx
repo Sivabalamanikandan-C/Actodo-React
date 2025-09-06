@@ -21,7 +21,7 @@ const Todoitem = (props) => {
     return (
         <div className="flex justify-between items-center">
             <p className="mt-3">{props.ind + 1}.{props.item.activity}</p>
-             <RiDeleteBin6Line size={24} color="red" className="cursor-pointer" onClick={() => { handleDelete(props.item.id) }} />
+             <RiDeleteBin6Line size={24} color="red" className="cursor-pointer mt-3" onClick={() => { handleDelete(props.item.id) }} />
         </div>
 
     );
