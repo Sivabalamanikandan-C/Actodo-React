@@ -7,8 +7,9 @@ const Login = (props) => {
     const users = props.users;
     const [eusername, setEusername] = useState("");
     const [epassword, setEpassword] = useState("");
+    const [ecpassword, setEcpassword] = useState("");
     const [ruser, setRuser] = useState(true);
-    const navigate=useNavigate();
+    const navigate = useNavigate();
 
     const handleEusername = (event) => {
         setEusername(event.target.value);
@@ -19,16 +20,15 @@ const Login = (props) => {
     }
 
     const checkUser = () => {
-        var foundUser=false;
+        var foundUser = false;
         users.forEach((items) => {
             if (items.username === eusername && items.password === epassword) {
                 console.log("Login Successfully");
-                foundUser=true;
-                navigate("/landing",{state:{users:eusername}});
+                foundUser = true;
+                navigate("/landing", { state: { users: eusername } });
             }
-            
-            if(foundUser===false)
-            {
+
+            if (foundUser === false) {
                 console.log("Login Failed");
                 setRuser(false);
             }
