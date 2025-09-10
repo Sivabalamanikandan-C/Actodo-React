@@ -19,6 +19,10 @@ const Login = (props) => {
         setEpassword(event.target.value);
     }
 
+    const handleEcpassword = (event) =>{
+        setEcpassword(event.target.value);
+    }
+
     const checkUser = () => {
         var foundUser = false;
         users.forEach((items) => {
