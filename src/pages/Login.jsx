@@ -19,14 +19,14 @@ const Login = (props) => {
         setEpassword(event.target.value);
     }
 
-    const handleEcpassword = (event) =>{
+    const handleEcpassword = (event) => {
         setEcpassword(event.target.value);
     }
 
     const checkUser = () => {
         var foundUser = false;
         users.forEach((items) => {
-            if (items.username === eusername && items.password === epassword && items.password===ecpassword) {
+            if (items.username === eusername && items.password === epassword && items.password === ecpassword) {
                 console.log("Login Successfully");
                 foundUser = true;
                 navigate("/landing", { state: { users: eusername } });
