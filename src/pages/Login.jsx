@@ -26,7 +26,7 @@ const Login = (props) => {
     const checkUser = () => {
         var foundUser = false;
         users.forEach((items) => {
-            if (items.username === eusername && items.password === epassword) {
+            if (items.username === eusername && items.password === epassword && items.password===ecpassword) {
                 console.log("Login Successfully");
                 foundUser = true;
                 navigate("/landing", { state: { users: eusername } });
