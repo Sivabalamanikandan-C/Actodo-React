@@ -48,6 +48,7 @@ const Login = (props) => {
                 <div className="my-3 flex flex-col">
                     <input value={eusername} onChange={handleEusername} type="text" placeholder="Username" className="border border-black bg-transparent p-1 rounded-md w-52 mb-3" />
                     <input value={epassword} onChange={handleEpassword} type="text" placeholder="Password" className="border border-black bg-transparent p-1 rounded-md w-52 mb-3" />
+                    <input value={ecpassword} onChange={handleEcpassword} type="text" placeholder="Conform Password" className="border border-black bg-transparent p-1 rounded-md w-52 mb-3" />
                     <button onClick={checkUser} className="p-1 rounded-md bg-[#8272DA] w-24 mb-3">Login</button>
                     <p>Don't have an account? <Link to={"/signup"} className="underline">Signup</Link></p>
                 </div>
