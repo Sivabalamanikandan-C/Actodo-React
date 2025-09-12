@@ -5,12 +5,33 @@ const Cardone = () => {
     const [weather, setWeather] = useState(null);
     const [place, setPlace] = useState(null);
 
+    const apiKey = "dfa5304a5169fdd05cecd449d7252ebf"; // your OpenWeatherMap key
+
+    // Fallback: Get location using IP if GPS fails
+    const getLocationByIP = async () => {
+        try {
+            const ipRes = await axios.get("https://ipapi.co/json/");
+            const { latitude, longitude, city } = ipRes.data;
+            console.log("IP-based location:", latitude, longitude, city);
+
+            const url = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
+            const weatherRes = await axios.get(url);
+
+            setWeather(weatherRes.data.main?.temp ?? "N/A");
+            setPlace(city || weatherRes.data.name || "Unknown");
+        } catch (error) {
+            console.error("IP-based location error:", error);
+            setWeather("N/A");
+            setPlace("Unknown");
+        }
+    };
+
     useEffect(() => {
         if ("geolocation" in navigator) {
             navigator.geolocation.getCurrentPosition(
                 async (position) => {
+                    console.log("GPS success:", position);
                     const { latitude, longitude } = position.coords;
-                    const apiKey = "dfa5304a5169fdd05cecd449d7252ebf";
                     const url = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
 
                     try {
@@ -18,29 +39,35 @@ const Cardone = () => {
                         setWeather(res.data.main?.temp ?? "N/A");
                         setPlace(res.data.name ?? "Unknown");
                     } catch (error) {
+                        console.error("Weather API error:", error);
                         setWeather("N/A");
                         setPlace("Unknown");
                     }
                 },
                 (error) => {
-                    setWeather("N/A");
-                    if (error.code === 1) {
-                        setPlace("Location denied");
-                    } else {
-                        setPlace("Unable to get location");
-                    }
+                    console.error("GPS error:", error);
+                    // If denied or unavailable → fallback to IP
+                    getLocationByIP();
                 }
             );
         } else {
-            setWeather("N/A");
-            setPlace("Geolocation not supported");
+            // If no geolocation support → fallback
+            getLocationByIP();
         }
     }, []);
 
     return (
-        <div style={{ backgroundColor: "#8272DA", padding: "20px", borderRadius: "10px", color: "white" }}>
-            <h1>{weather !== null ? `${weather}°C` : "Loading..."}</h1>
-            <p>{place || "Loading..."}</p>
+        <div
+            style={{
+                backgroundColor: "#8272DA",
+                padding: "20px",
+                borderRadius: "10px",
+                color: "white",
+            }}
+        >
+
+            <h1>{place || "Loading..."}</h1>
+            <p>{weather !== null ? `${weather}°C` : "Loading..."}</p>
         </div>
     );
 };
