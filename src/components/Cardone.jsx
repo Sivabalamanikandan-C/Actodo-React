@@ -5,9 +5,8 @@ const Cardone = () => {
     const [weather, setWeather] = useState(null);
     const [place, setPlace] = useState(null);
 
-    const apiKey = "dfa5304a5169fdd05cecd449d7252ebf"; // your OpenWeatherMap key
+    const apiKey = "dfa5304a5169fdd05cecd449d7252ebf";
 
-    // Fallback: Get location using IP if GPS fails
     const getLocationByIP = async () => {
         try {
             const ipRes = await axios.get("https://ipapi.co/json/");
@@ -46,25 +45,17 @@ const Cardone = () => {
                 },
                 (error) => {
                     console.error("GPS error:", error);
-                    // If denied or unavailable → fallback to IP
                     getLocationByIP();
                 }
             );
         } else {
-            // If no geolocation support → fallback
+
             getLocationByIP();
         }
     }, []);
 
     return (
-        <div
-            style={{
-                backgroundColor: "#8272DA",
-                padding: "20px",
-                borderRadius: "10px",
-                color: "white",
-            }}
-        >
+        <div style={{ backgroundColor: "#8272DA" }}>
 
             <h1>{place || "Loading..."}</h1>
             <p>{weather !== null ? `${weather}°C` : "Loading..."}</p>
