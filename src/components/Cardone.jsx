@@ -58,7 +58,7 @@ const Cardone = () => {
         <div style={{ backgroundColor: "#8272DA" }} className="px-10 py-5 border rounded-md my-3 text-center flex-grow">
 
             <h1 className="text-2xl font-medium mb-1">{place || "Loading..."}</h1>
-            <p>{weather !== null ? `${weather}°C` : "Loading..."}</p>
+            <p className="text-xl">{weather !== null ? `${weather}°C` : "Loading..."}</p>
         </div>
     );
 };
