@@ -15,7 +15,7 @@ const Cardtwo = () => {
     }, []);
 
     return (
-        <div className="bg-red-400">
+        <div className='bg-red-400 px-10 py-5 border rounded-md my-3 text-center flex-grow'>
             <h1>{dateTime.toLocaleDateString("en-US", { month: "long", day: "numeric" })}</h1>
             <p>{dateTime.toLocaleTimeString()}</p>
         </div>

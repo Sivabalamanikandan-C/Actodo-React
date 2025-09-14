@@ -1,5 +1,5 @@
 import Header from "../components/Header";
-import Card from "../components/Card";
+
 import Todocontainer from "../components/Todocontainer";
 import { useLocation } from "react-router-dom";
 
@@ -15,11 +15,10 @@ const Landing = () => {
         <div className='bg-black p-14'>
             <div className='bg-[#efefef] p-10 rounded-md'>
                 <Header data={data.state.users} />
-
-                <div className='flex justify-between gap-7 flex-wrap'>
+                <div className='flex justify-between gap-7 flex-wrap '>
                     <Cardone />
                     <Cardtwo />
-                    <Cardthree/>
+                    <Cardthree />
                 </div>
                 <Todocontainer />
             </div>

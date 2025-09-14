@@ -4,10 +4,9 @@ import axios from "axios";
 const Cardone = () => {
     const [weather, setWeather] = useState(null);
     const [place, setPlace] = useState(null);
-
     const apiKey = "dfa5304a5169fdd05cecd449d7252ebf";
-
     const getLocationByIP = async () => {
+
         try {
             const ipRes = await axios.get("https://ipapi.co/json/");
             const { latitude, longitude, city } = ipRes.data;
@@ -18,6 +17,7 @@ const Cardone = () => {
 
             setWeather(weatherRes.data.main?.temp ?? "N/A");
             setPlace(city || weatherRes.data.name || "Unknown");
+
         } catch (error) {
             console.error("IP-based location error:", error);
             setWeather("N/A");
@@ -55,7 +55,7 @@ const Cardone = () => {
     }, []);
 
     return (
-        <div style={{ backgroundColor: "#8272DA" }}>
+        <div style={{ backgroundColor: "#8272DA" }} className="px-10 py-5 border rounded-md my-3 text-center flex-grow">
 
             <h1>{place || "Loading..."}</h1>
             <p>{weather !== null ? `${weather}°C` : "Loading..."}</p>
