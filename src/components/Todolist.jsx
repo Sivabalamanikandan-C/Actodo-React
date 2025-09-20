@@ -3,8 +3,8 @@ import Todoitem from "./Todoitem";
 
 const Todolist = (props) => {
 
-    const activityArr=props.activityArr;
-    const setactivityArr=props.setactivityArr;
+    const activityArr = props.activityArr;
+    const setactivityArr = props.setactivityArr;
 
     return (
         <div className="bg-[#BDB4EA] border rounded-md p-2 flex-grow md:ml-6">
