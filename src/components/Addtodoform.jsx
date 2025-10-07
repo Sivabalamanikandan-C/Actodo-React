@@ -17,7 +17,7 @@ const Addtodoform = (props) => {
     }
 
     return (
-        <div className="flex flex-col gap-3">
+        <div className="text-center">
             <h1 className="text-2xl font-medium">Manage Activity</h1>
             <div>
                 <input type="text" value={newActivity} onChange={handlenewactivity} placeholder="Next Activity?" className="outline-1 p-1 my-2 rounded-md bg-transparent" />

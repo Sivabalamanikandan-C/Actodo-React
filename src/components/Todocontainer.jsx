@@ -9,7 +9,7 @@ const Todocontainer = () => {
 
     return (
         <div>
-            <div className="my-3 flex gap-6 flex-wrap">
+            <div>
                 <Addtodoform activityArr={activityArr} setactivityArr={setactivityArr} />
                 <Todolist activityArr={activityArr} setactivityArr={setactivityArr} />
             </div>
