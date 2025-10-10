@@ -12,7 +12,7 @@ const Landing = () => {
     const data = useLocation();
 
     return (
-        <div className='bg-black p-14'>
+        <div className='bg-black p-10'>
             <div className='bg-[#efefef] p-10 rounded-md'>
                 <Header data={data.state.users} />
                 <div className='flex justify-between gap-7 flex-wrap '>
