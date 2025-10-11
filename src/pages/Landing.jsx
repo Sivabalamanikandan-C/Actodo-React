@@ -13,7 +13,7 @@ const Landing = () => {
 
     return (
         <div className='bg-black p-10'>
-            <div className='bg-[#efefef] p-10 rounded-md'>
+            <div className='bg-[#efefef] p-8 rounded-md'>
                 <Header data={data.state.users} />
                 <div className='flex justify-between gap-7 flex-wrap '>
                     <Cardone />
