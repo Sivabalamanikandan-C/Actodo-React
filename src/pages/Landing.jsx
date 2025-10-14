@@ -15,7 +15,7 @@ const Landing = () => {
         <div className='bg-black p-10'>
             <div className='bg-[#efefef] p-8 rounded-md'>
                 <Header data={data.state.users} />
-                <div className='grid grid-cols-1 md:grid-cols-3 gap-6 text-center"'>
+                <div className='grid grid-cols-1 md:grid-cols-3 gap-6 text-center'>
                     <Cardone />
                     <Cardtwo />
                     <Cardthree />
