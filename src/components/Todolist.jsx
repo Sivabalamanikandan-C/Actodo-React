@@ -7,7 +7,7 @@ const Todolist = (props) => {
     const setactivityArr = props.setactivityArr;
 
     return (
-       <div className="bg-[#BDB4EA] border rounded-md p-4 w-11/12 sm:w-10/12 md:w-3/4 lg:w-3/5 xl:w-1/2 mx-auto mt-4">
+       <div className="bg-[#BDB4EA] border rounded-md p-4.5 w-11/12 sm:w-10/12 md:w-3/4 lg:w-3/5 xl:w-1/2 mx-auto mt-4">
             <h1 className="text-2xl font-medium mb-3 text-center md:text-left">Today's Activity</h1>
 
             {activityArr.length === 0 ? (
